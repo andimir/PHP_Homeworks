@@ -3,18 +3,20 @@
 $globalArr = range(20,1000,37) ;
 $count = 0;
 $numExists = array (146,284,871);
+
 //var_dump($globalArr);  
 function is_Prime($num){
-   
+    
     if($num % 2 == 0) {
         return 0;
-	    }
+    }
      
     for($i = 3; $i <= ceil(sqrt($num)); $i = $i + 2) {
         if($num % $i == 0)
             return 0;
-	    }
-        return $num;
+    }
+    
+    return $num;
 }      
 
 $onlyPrimes = array_filter($globalArr,"is_Prime");
@@ -39,6 +41,5 @@ foreach ($numExists as $value){
         echo "<br />";
     }      
 }
-
 
 ?>
