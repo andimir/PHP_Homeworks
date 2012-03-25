@@ -3,7 +3,6 @@
 $globalArr = range(20,1000,37) ;
 $count = 0;
 $numExists = array (146,284,871);
-
 //var_dump($globalArr);  
 function is_Prime($num){
    
@@ -15,21 +14,21 @@ function is_Prime($num){
         if($num % $i == 0)
             return 0;
 	    }
-	    return $num;
+        return $num;
 }      
 
-$b = array_map("is_Prime", $globalArr);
-foreach ($b as $value){
-    if ($value != 0){
-        $count++;
-            if ($count == 3){
-                echo "<b>Third Prime number is:$value</b>";
-                echo "<br/>";
-                break;                
-            }
-    }   
-}
-//var_dump($b);
+$onlyPrimes = array_filter($globalArr,"is_Prime");
+
+foreach ($onlyPrimes as $value){
+    $count++;
+    if ($count == 3){
+        echo "<b>The Third Prime number is:$value</b>";
+        echo "<br/>";
+        break;                
+    }
+}   
+
+//var_dump($onlyPrimes);
 
 foreach ($numExists as $value){
     if (in_array($value, $globalArr)) {
